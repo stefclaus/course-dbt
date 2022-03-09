@@ -6,7 +6,7 @@
 
 SELECT 
     product_id,
-    name,
+    name AS product_name,
     price::numeric AS price,
     inventory
 FROM {{ source('tutorial', 'products') }}
