@@ -14,10 +14,10 @@ models:
           - relationships:
               to: ref('users')
               field: user_id
-      - name: status
+      - name: order_status
         tests:
           - accepted_values:
-              values: ['shipped', 'preparing',' delivered']
+              values: ['shipped', 'preparing', 'delivered']
   - name: stg_order_items
     description: >
       Product IDs tied to an order and their quantity
@@ -63,7 +63,10 @@ models:
       - name: height
         tests:
           - positive_values
-      - name: weight
+      - name: weight_lbs
+        tests:
+          - positive_values
+      - name: weight_kg
         tests:
           - positive_values
   - name: stg_users
