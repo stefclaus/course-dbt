@@ -17,7 +17,7 @@ models:
       - name: status
         tests:
           - accepted_values:
-              ['shipped','preparing','delivered']
+              values: ['shipped', 'preparing',' delivered']
   - name: stg_order_items
     description: >
       Product IDs tied to an order and their quantity
@@ -52,7 +52,7 @@ models:
       - name: status
         tests:
           - accepted_values:
-            ['active','inactive']
+              values: ['active', 'inactive']
   - name: stg_superheroes
     description: > 
       Demographics about each superhero such as name, hair color, height and weight. 
