@@ -21,7 +21,7 @@ sources:
         description: >
           Contains demographic information about each superhero
       - name: orders
-        loaded_at_field: created_at
+        #loaded_at_field: created_at
         description: >
           Contains information about each order, including its cost, delivery, and whether a promo was used
       - name: order_items
@@ -34,14 +34,14 @@ sources:
         description: >
           Contains information about promotions
       - name: users
-        loaded_at_field: created_at
+        #loaded_at_field: created_at
         description: > 
           Contains information about Greenery users
       - name: addresses
         description: >
           Contains addresses that may be tied to a user or order
       - name: events
-        loaded_at_field: created_at
+        #loaded_at_field: created_at
         description: >
           Contains information on user behavior
 
