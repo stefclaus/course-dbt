@@ -1,0 +1,82 @@
+version: 2
+
+models:
+  - name: stg_orders
+    description: >
+      Information about orders. Includes who made the purchase, the cost, whether a promo was used, and shipping details
+    columns:
+      - name: order_id
+        tests:
+          - not_null
+          - unique
+      - name: user_id
+        tests:
+          - relationships:
+              to: ref('users')
+              field: user_id
+      - name: order_status
+        tests:
+          - accepted_values:
+              values: ['shipped', 'preparing', 'delivered']
+  - name: stg_order_items
+    description: >
+      Product IDs tied to an order and their quantity
+    columns:
+      - name: order_id
+        tests:
+          - not_null
+      - name: product_id
+        tests:
+          - not_null
+      - name: quantity
+        tests:
+          - positive_values
+  - name: stg_products
+    description: >
+      Information describing a product and the known inventory available
+    columns:
+      - name: product_id
+        tests:
+          - not_null
+          - unique
+      - name: price
+        tests:
+          - positive_values
+  - name: stg_promos
+    description: >
+      Promotion names, the discount amount, and whether it is active
+    columns:
+      - name: promo_name
+        tests:
+          - not_null
+      - name: status
+        tests:
+          - accepted_values:
+              values: ['active', 'inactive']
+  - name: stg_users
+    description: >
+      Information about Greenery users
+    columns:
+      - name: user_id
+        tests:
+          - not_null
+          - unique
+  - name: stg_addresses
+    description: >
+      Addresses tied to a user or order. Includes street, zip, state, and country.
+    columns:
+      - name: address_id
+        tests:
+          - not_null
+          - unique
+  - name: stg_events
+    description: >
+      Events showing user behavior on the Greenery site. 
+    columns:
+      - name: event_id
+        tests:
+          - not_null
+          - unique
+      - name: session_id
+        tests:
+          - not_null
