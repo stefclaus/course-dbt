@@ -1,8 +1,7 @@
 version: 2
 
 sources:
-
-  - name: tutorial # name of the source 
+  - name: greenery # name of the source 
     schema: public # this is the schema our raw data lives in
     database: dbt # this is the name of our database
 
@@ -16,15 +15,32 @@ sources:
       error_after: {count: 48, period: hour}
 
     tables:
-      - name: superheroes 
-        loaded_at_field: created_at
-        description: >
-          Contains demographic information about each superhero
+     
       - name: stg_users 
+        description: >
+          Information about each user
+
       - name: stg_addresses 
+        description: >
+          Address Information
+
       - name: stg_events 
+        description: >
+            Information on events
+
       - name: stg_orders 
+        description: >
+          Information on order
+
       - name: stg_order_items 
+        description: >
+          Information in items ordered
+
       - name: stg_products 
+        description: >
+          Product info
+
       - name: stg_promos 
+        description: >
+          Promo info
 
