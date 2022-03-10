@@ -19,3 +19,9 @@ models:
         tests:
           - unique
           - not_null
+  - name: events
+  - name: order_items
+  - name: orders
+  - name: products
+  - name: promos
+  - name: users
