@@ -20,11 +20,11 @@ sources:
         loaded_at_field: created_at
         description: >
           Contains demographic information about each superhero
-      - name: users 
-      - name: addresses 
-      - name: events 
-      - name: orders 
-      - name: order_items 
-      - name: products 
-      - name: promos 
+      - name: stg_users 
+      - name: stg_addresses 
+      - name: stg_events 
+      - name: stg_orders 
+      - name: stg_order_items 
+      - name: stg_products 
+      - name: stg_promos 
 
