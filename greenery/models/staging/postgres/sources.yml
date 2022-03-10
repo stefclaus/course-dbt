@@ -1,9 +1,11 @@
 version: 2
 
 sources:
+
   - name: greenery # name of the source 
     schema: public # this is the schema our raw data lives in
     database: dbt # this is the name of our database
+
 
     quoting:
       database: false
@@ -16,31 +18,31 @@ sources:
 
     tables:
      
-      - name: stg_users 
+      - name: users 
         description: >
           Information about each user
 
-      - name: stg_addresses 
+      - name: addresses 
         description: >
           Address Information
 
-      - name: stg_events 
+      - name: events 
         description: >
             Information on events
 
-      - name: stg_orders 
+      - name: orders 
         description: >
           Information on order
 
-      - name: stg_order_items 
+      - name: order_items 
         description: >
           Information in items ordered
 
-      - name: stg_products 
+      - name: products 
         description: >
           Product info
 
-      - name: stg_promos 
+      - name: promos 
         description: >
           Promo info
 
