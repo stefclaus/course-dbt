@@ -1,5 +1,5 @@
 select 
-    product_id as product_id,
+    product_id as product_guid,
     name,
     price,
     inventory
