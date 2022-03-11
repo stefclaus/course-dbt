@@ -1,5 +1,5 @@
 
-**Question: **How many users do we have?
+**Question:** How many users do we have?
 
 **Query:** select count(distinct(user_guid)) from dbt_stef_c.stg_users
 
