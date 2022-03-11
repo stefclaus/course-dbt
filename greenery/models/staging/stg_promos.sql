@@ -8,4 +8,4 @@ SELECT
     promo_id::varchar AS promo_name,
     discount::numeric AS discount,
     status
-FROM {{ source('tutorial', 'promos') }}
+FROM {{ source('postgres', 'promos') }}
