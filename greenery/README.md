@@ -1,6 +1,6 @@
 
-###Question: How many users do we have? 
-
+**###Question: How many users do we have? 
+**
 ##Query: select count(distinct(user_guid)) from dbt_stef_c.stg_users
 
 ##Answer: 130
@@ -15,7 +15,7 @@
   select distinct_orders/total_hours as orders_per_hour
   from distinct_orders
 
- ## Answers: 7.52
+ ## Answer: 7.52
 
 ###Question: On average, how long does an order take from being placed to being delivered?
 
