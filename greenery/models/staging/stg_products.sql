@@ -1,12 +1,24 @@
 {{
   config(
-    materialized='table'
+    materialized='view'
   )
 }}
 
-SELECT 
-    product_id,
-    name AS product_name,
-    price::numeric AS price,
-    inventory
-FROM {{ source('postgres', 'products') }}
+with source as (
+    
+    select * from {{ source('postgres', 'products') }}
+    
+),
+
+cleaned as (
+    
+    select 
+      product_id,
+      name AS product_name,
+      price::numeric AS price,
+      inventory
+    from source
+
+)
+
+select * from cleaned
