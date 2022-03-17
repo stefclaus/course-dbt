@@ -1,5 +1,5 @@
 select 
-    promo_id as user_guid,
+    promo_id as promo_guid,
     discount,
     status
 FROM {{ source('greenery', 'promos') }}
