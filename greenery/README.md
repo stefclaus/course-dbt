@@ -1,28 +1,14 @@
-Welcome to your new dbt project!
 
-### Using the starter project
+**Question:** How many users do we have?
 
-Try running the following commands:
-- dbt run
-- dbt test
+**Query:** select count(distinct(user_guid)) from dbt_stef_c.stg_users
+
+**Answer:** 130
+
+**Question:** On average, how many orders do we receive per hour?
 
 
-### Resources:
-- Learn more about dbt [in the docs](https://docs.getdbt.com/docs/introduction)
-- Check out [Discourse](https://discourse.getdbt.com/) for commonly asked questions and answers
-- Join the [chat](https://community.getdbt.com/) on Slack for live discussions and support
-- Find [dbt events](https://events.getdbt.com) near you
-- Check out [the blog](https://blog.getdbt.com/) for the latest news on dbt's development and best practices
-
-Question: How many users do we have? 
-
-Query: select count(distinct(user_guid)) from dbt_stef_c.stg_users
-
-Answer: 130
-
-Question: On average, how many orders do we receive per hour?
-
-  with distinct_orders as (
+**Query:** with distinct_orders as (
   select count(distinct order_guid) as distinct_orders,
     extract(epoch from max(created_at_utc)-min(created_at_utc))/3600 as total_hours
   from dbt_stef_c.stg_orders)
@@ -30,11 +16,11 @@ Question: On average, how many orders do we receive per hour?
   select distinct_orders/total_hours as orders_per_hour
   from distinct_orders
 
-  Answers: 7.52
+**Answer:** 7.52
 
-Question: On average, how long does an order take from being placed to being delivered?
+**Question:** On average, how long does an order take from being placed to being delivered?
 
-Query:  with time_passed as (
+**Query:**  with time_passed as (
   select 
     extract(epoch from (delivered_at_utc)-(created_at_utc))/3600 as elapsed_hours
     from dbt_stef_c.stg_orders)
@@ -42,13 +28,15 @@ Query:  with time_passed as (
   select  avg(elapsed_hours)
   from time_passed
 
-Answer: 93.4 hours
+**Answer:** 93.4 hours
 
-Question: How many users have only made one purchase? Two purchases? Three+ purchases?
+**Question:** How many users have only made one purchase? Two purchases? Three+ purchases?
 
-Note: you should consider a purchase to be a single order. In other words, if a user places one order for 3 products, they are considered to have made 1 purchase.
+**Note:** you should consider a purchase to be a single order. In other words, if a user places one order for 3 products, they are considered to have made 1 purchase.
 
-Query:with order_count as(
+**Query:**
+
+with order_count as(
   select count(*) order_guid,
     user_guid
 from dbt_stef_c.stg_orders
@@ -60,18 +48,18 @@ from order_count
 group by order_guid
 order by 1
 
-Answer:
+**Answer:**
 1 25
 2 28
 3+ 71
 
-Question: On average, how many unique sessions do we have per hour?
+**Question:** On average, how many unique sessions do we have per hour?
 
-Query: 
+**Query: **
 
 with sessions as 
-  (select count(distinct session_id) as distinct_sessions,
-      date_trunc('hour', created_at) AS hour_created_at
+  (select count(distinct session_guid) as distinct_sessions,
+      date_trunc('hour', created_at_utc) AS hour_created_at
   from dbt_stef_c.stg_events
   group by 2)
 
@@ -79,4 +67,4 @@ select avg(distinct_sessions)
 from sessions
 
 
-Answer: 16.3
+**Answer:** 16.3
