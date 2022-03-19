@@ -1,7 +1,12 @@
-select 
+with stg_addresses as (
+    select 
      address_id as address_guid,
     address, 
     zipcode,
     state, 
     country
-FROM {{ source('greenery', 'addresses') }}
+from {{ source('greenery', 'addresses') }}
+)
+
+select * 
+from stg_addresses

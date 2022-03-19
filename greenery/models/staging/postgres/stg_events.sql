@@ -1,4 +1,5 @@
-select 
+with stg_events as (
+ select 
     event_id as event_guid,
     session_id as session_guid,
     user_id as user_guid,
@@ -8,5 +9,7 @@ select
     order_id as order_guid, 
     product_id as product_guid
 FROM {{ source('greenery', 'events') }}
+)
 
-
+select * 
+from stg_events

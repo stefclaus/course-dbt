@@ -7,7 +7,7 @@ select
     order_cost,
     shipping_cost,
     order_total,
-    tracking_id,
+    tracking_id as tracking_guid,
     shipping_service,
     estimated_delivery_at as estimated_delievery_at_utc,
     delivered_at as delivered_at_utc,
