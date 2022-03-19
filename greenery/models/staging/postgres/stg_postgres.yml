@@ -3,9 +3,40 @@ version: 2
 
 models:
   - name: stg_events
+    columns: 
+        - name: event_guid
+          tests:
+          - not_null
+          - unique
+  - name: stg_addresses
+    columns: 
+        - name: address_guid
+          tests:
+          - not_null
+          - unique
   - name: stg_order_items
   - name: stg_orders
+    columns: 
+        - name: order_guid
+          tests:
+            - not_null
+            - unique
   - name: stg_products
+      columns: 
+        - name: product_guid
+          tests:
+            - not_null
+            - unique
   - name: stg_promos
+      columns: 
+        - name: promo_guid
+          tests:
+            - not_null
+            - unique
   - name: stg_users
-
+    description: Contains user related information such as names, email and phone number
+    columns: 
+      - name: user_guid
+        tests:
+          - not_null
+          - unique
