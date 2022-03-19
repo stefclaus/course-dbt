@@ -50,9 +50,16 @@ with  repeat_purchase as (
 
 **Answer:**
 
-* Core:
+* Core: 
+   *dim_proudcts: here I join products and order items so I can have access to both products and the quantity that is only available in order_items
+   *dim_users: here I join users and addresses, so I have access to both
+   *fct_events: no real changes here, but I added this for completeness or in case changes have to happen in the future
+   * fct_orders:i combine order with order items so I can have information from both tables
 * Marketing: 
+    *imm_user_orders: I create and imm table that just joins users and orders
+    *fct_user_orders: I create more usable and grouped columns like number_of_orders here
 * Product: 
+    *none yet! I could add the sessions work we did in class 
 
 
 *4. Use the dbt docs to visualize your model DAGs to ensure the model layers make sense.*
@@ -79,3 +86,6 @@ with  repeat_purchase as (
 
 **Answer**
 
+At work, we use dbt cloud that automatically sends a daily email when tests fail. That's a good start, but I could also integrate with slack, to give the whole team better awareness and coverage about the tests. 
+
+Typically, when a lot of bad data is coming through it's time to talk to eng to see if there is something on their end that can be done. I like to get really organized before those convos so I can be super specific. 

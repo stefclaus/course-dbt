@@ -33,7 +33,7 @@ user_orders as (
         b.product_guid,
         b.quantity
     from users a
-    left outer join orders b
+    left join orders b
     on a.user_guid = b.user_guid 
         
 )
