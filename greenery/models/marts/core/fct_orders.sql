@@ -3,6 +3,7 @@ with stg_orders as (
 )
 
 select a.order_guid,
+    a.user_guid,
     a.promo_guid,
     a.address_guid,
     a.created_at_utc,
