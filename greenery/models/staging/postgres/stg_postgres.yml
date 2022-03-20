@@ -19,8 +19,8 @@ models:
     columns: 
         - name: order_guid
           tests:
-            - not_null
-            - unique
+          - not_null
+          - unique
   - name: stg_products
     columns: 
       - name: product_guid
@@ -33,6 +33,11 @@ models:
         tests:
           - not_null
           - unique
+      - name: status
+        tests:
+          - accepted_values:
+              values: ['active', 'inactive']
+
   - name: stg_users
     columns: 
       - name: user_guid

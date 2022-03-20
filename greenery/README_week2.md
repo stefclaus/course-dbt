@@ -28,22 +28,13 @@ with  repeat_purchase as (
 **Answer:**
 
 * Good indicators: 
-  * 
-  * 
-    * 
-    * 
+  * Purchase amount?
+  * Previous number of purchases (ie, people who purcahse 3 times are likely to become habitual customers)
+  * Purchase type: are people who purchase certain items likely to re purchase?
+  * Promo Amount? 
+  * Promo frequency-- ie, people who always/never use a promo?
 
-* Bad indicators:
-  * 
-  * 
-    * 
-    * 
-
-* Additional data / questions:
-  * 
-  * 
-  * 
-  * 
+  
 
 
 *3. Explain the marts models you added. Why did you organize the models in the way you did?*
@@ -51,15 +42,18 @@ with  repeat_purchase as (
 **Answer:**
 
 * Core: 
-   *dim_proudcts: here I join products and order items so I can have access to both products and the quantity that is only available in order_items
-   *dim_users: here I join users and addresses, so I have access to both
-   *fct_events: no real changes here, but I added this for completeness or in case changes have to happen in the future
-   * fct_orders:i combine order with order items so I can have information from both tables
+   * dim_products: here I join products and order items so I can have access to both products and the quantity that is only available in order_items
+
+   * dim_users: here I join users and addresses, so I have access to both
+
+   * fct_events: no real changes here, but I added this for completeness or in case changes have to happen in the future
+
+   * fct_orders:I combine order with order items so I can have information from both tables
 * Marketing: 
-    *imm_user_orders: I create and imm table that just joins users and orders
-    *fct_user_orders: I create more usable and grouped columns like number_of_orders here
+    * imm_user_orders: I create and imm table that just joins users and orders
+    * fct_user_orders: I create more usable and grouped columns like number_of_orders here
 * Product: 
-    *none yet! I could add the sessions work we did in class 
+    * None yet! I could add the sessions work we did in class 
 
 
 *4. Use the dbt docs to visualize your model DAGs to ensure the model layers make sense.*
