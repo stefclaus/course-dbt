@@ -5,21 +5,26 @@
 *1. What is our user repeat rate?*
 
  **Answer:**
- 94.3%
+ 79%
 
 Query:
 ```ruby
-with  repeat_purchase as (
-    select
-      sum(case when number_of_orders>0 then 1 else 0 end) as purchasers,
-      sum(case when number_of_orders>1 then 1 else 0 end) as repeat_purchasers
+with user_order_count as
+(select
+  user_guid,
+  count(distinct(order_guid)) as order_count
+from "dbt_stef_c".stg_orders
+group by user_guid),
 
-  from dbt_stef_c.fct_user_orders
-  )
- 
-  select
-    cast(repeat_purchasers as int)/cast (purchasers as int) as repeat_purchase
-  from repeat_purchase
+repeat_purchase as
+(select
+count(case when order_count>=2 then 1 end) as repeat_buyer,
+count(case when order_count>0 then 1 end) as all_buyers
+from user_order_count)
+
+select
+cast(repeat_buyer as decimal)/cast(all_buyers as decimal) as solution
+from repeat_purchase
 ```
 
 
