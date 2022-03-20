@@ -5,26 +5,18 @@
 *1. What is our user repeat rate?*
 
  **Answer:**
- 79%
+ 79.83%
 
 Query:
 ```ruby
-with user_order_count as
-(select
-  user_guid,
-  count(distinct(order_guid)) as order_count
-from "dbt_stef_c".stg_orders
-group by user_guid),
+with orders as (
+select 
+  sum(case when number_of_orders>0 then 1 end) as buyer,
+  sum(case when number_of_orders>=2 then 1 end) as repeat_buyer
+from dbt_stef_c.fct_user_orders)
 
-repeat_purchase as
-(select
-count(case when order_count>=2 then 1 end) as repeat_buyer,
-count(case when order_count>0 then 1 end) as all_buyers
-from user_order_count)
-
-select
-cast(repeat_buyer as decimal)/cast(all_buyers as decimal) as solution
-from repeat_purchase
+select cast(repeat_buyer as decimal)/cast(buyer as decimal) as solution
+from orders
 ```
 
 
@@ -40,7 +32,6 @@ from repeat_purchase
   * Promo frequency-- ie, people who always/never use a promo?
 
   
-
 
 *3. Explain the marts models you added. Why did you organize the models in the way you did?*
 
