@@ -60,7 +60,7 @@ with  repeat_purchase as (
 
 **DAG:**
 
-See Slack Message
+![](dag.png)
 
 ### Part 2 Tests
 
@@ -74,7 +74,7 @@ Promo should only have two types of status: active and inactive
 *2. Did you find any “bad” data as you added and ran tests on your models? How did you go about either cleaning the data in the dbt model or adjusting your assumptions/tests?*
 
 **Answer**
-I didn't find any bad data (yet)
+Order ids in the events table have a bunch of nulls. I didn't have time to investigate, but it def merits further investigation!
 
 *3. Your stakeholders at Greenery want to understand the state of the data each day. Explain how you would ensure these tests are passing regularly and how you would alert stakeholders about bad data getting through.*
 

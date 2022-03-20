@@ -8,6 +8,9 @@ models:
           tests:
           - not_null
           - unique
+        - name: order_guid
+          tests: 
+          - not_null
   - name: stg_addresses
     columns: 
         - name: address_guid
