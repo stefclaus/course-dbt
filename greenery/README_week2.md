@@ -60,21 +60,21 @@ with  repeat_purchase as (
 
 **DAG:**
 
-![alt text](link)
-
+See Slack Message
 
 ### Part 2 Tests
 
 *1. What assumptions are you making about each model? (i.e. why are you adding each test?)*
 
 **Answer**
-
- 
+Each id should be unique and non null. 
+Order dates and arrival dates should be sequental. 
+Promo should only have two types of status: active and inactive 
 
 *2. Did you find any “bad” data as you added and ran tests on your models? How did you go about either cleaning the data in the dbt model or adjusting your assumptions/tests?*
 
 **Answer**
-
+I didn't find any bad data (yet)
 
 *3. Your stakeholders at Greenery want to understand the state of the data each day. Explain how you would ensure these tests are passing regularly and how you would alert stakeholders about bad data getting through.*
 

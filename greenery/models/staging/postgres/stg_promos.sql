@@ -1,3 +1,9 @@
+{{
+  config(
+    materialized='table'
+  )
+}}
+
 with stg_promos as (
     select 
         promo_id as promo_guid,

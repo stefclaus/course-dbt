@@ -1,3 +1,9 @@
+{{
+  config(
+    materialized='table'
+  )
+}}
+
 with stg_users as (
     select user_id as user_guid,
         first_name,

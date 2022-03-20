@@ -1,3 +1,9 @@
+{{
+  config(
+    materialized='table'
+  )
+}}
+
 with stg_products as (
     select * from {{ ref('stg_products') }}
 )

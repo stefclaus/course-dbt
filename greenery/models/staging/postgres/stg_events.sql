@@ -1,3 +1,9 @@
+{{
+  config(
+    materialized='table'
+  )
+}}
+
 with stg_events as (
  select 
     event_id as event_guid,
