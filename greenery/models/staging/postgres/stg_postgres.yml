@@ -22,19 +22,18 @@ models:
             - not_null
             - unique
   - name: stg_products
-      columns: 
-        - name: product_guid
-          tests:
+    columns: 
+      - name: product_guid
+        tests:
             - not_null
             - unique
   - name: stg_promos
-      columns: 
-        - name: promo_guid
-          tests:
-            - not_null
-            - unique
+    columns: 
+      - name: promo_guid
+        tests:
+          - not_null
+          - unique
   - name: stg_users
-    description: Contains user related information such as names, email and phone number
     columns: 
       - name: user_guid
         tests:
