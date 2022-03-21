@@ -43,7 +43,7 @@ To understand what are indicators of whether a user will repeat purchase or not,
 
 ### Create a marts folder, so we can organize our models, with the following subfolders for business units: Core, Marketing, Product
 
-See [`greenery/models/marts](https://github.com/mcaruana/course-dbt/tree/mc-week-two/greenery/models/marts)
+See [`greenery/models/marts`](https://github.com/mcaruana/course-dbt/tree/mc-week-two/greenery/models/marts)
 
 ### Explain the marts models you added. Why did you organize the models in the way you did?
 
