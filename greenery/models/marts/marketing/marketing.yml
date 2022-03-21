@@ -1,5 +1,6 @@
 version: 2
 
 models:
-  - name: 
-    description: 
+  - name: fct_promo_revenue
+    description: Revenue figures and item volumes for each promotion
+

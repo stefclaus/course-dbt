@@ -1,5 +1,8 @@
 version: 2
 
 models:
-  - name: user_sessions_grouped
-    description: 
+  - name: int_sessions_agg
+    description: Aggregated metrics about a user's sessions
+  - name: fct_user_sessions
+    description: User-session-level metrics
+
