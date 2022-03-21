@@ -33,6 +33,7 @@ To understand what are indicators of whether a user will repeat purchase or not,
  * Who the purchase was for (could infer whether address on order matches address in users table)
  * User interaction with site after purchase but _before_ first order arrives
  * General Demographic data (location, age, gender)
+ * Days from creating an account to purchasing
  
  Additional data that does not exist but would be helpful includes:
   * Review (How did you like your purchase?)
@@ -47,4 +48,22 @@ See [`greenery/models/marts`](https://github.com/mcaruana/course-dbt/tree/mc-wee
 
 ### Explain the marts models you added. Why did you organize the models in the way you did?
 
+For **core**, see [`greenery/models/marts/core/core.md](https://github.com/mcaruana/course-dbt/tree/mc-week-two/greenery/models/marts/core/core.md)
+
+For **marketing**, see [`greenery/models/marts/marketing/marketing.md](https://github.com/mcaruana/course-dbt/tree/mc-week-two/greenery/models/marts/marketing/marketing.md)
+
+For **product**, see [`greenery/models/marts/product/product.md](https://github.com/mcaruana/course-dbt/tree/mc-week-two/greenery/models/marts/product/product.md)
+
 ### Use the dbt docs to visualize your model DAGs to ensure the model layers make sense
+
+
+
+## Part 2 (Tests)
+
+### We added some more models and transformed some data! Now we need to make sure they’re accurately reflecting the data. Add dbt tests into your dbt project on your existing models from Week 1, and new models from the section above
+
+Added in code
+
+### Your stakeholders at Greenery want to understand the state of the data each day. Explain how you would ensure these tests are passing regularly and how you would alert stakeholders about bad data getting through.
+
+There's a few ways of doing this. You can presuambly log failures and report on them, or integrate with Slack so that failures are being sent as alerts. The tests are only good if you're monitoring and understanding why they failed. 
