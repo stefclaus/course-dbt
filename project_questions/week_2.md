@@ -56,7 +56,7 @@ For **product**, see [`greenery/models/marts/product/product.md](https://github.
 
 ### Use the dbt docs to visualize your model DAGs to ensure the model layers make sense
 
-
+See https://github.com/mcaruana/course-dbt/blob/mc-week-two/assets/20220321_lineage.png
 
 ## Part 2 (Tests)
 
