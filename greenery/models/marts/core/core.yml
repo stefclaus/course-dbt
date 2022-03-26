@@ -1,0 +1,63 @@
+version: 2
+
+models:
+  - name: dim_users
+    description: More interpretable user data, including address details
+    columns:
+      - name: user_id
+        description: Unique identifier of the user and primary key for this table
+        tests:
+          - unique
+          - not_null
+      - name: days_since_join
+        description: Number of days that have passed since a member created an account
+        tests:
+          - not_null
+          - positive_values
+  - name: dim_products
+    description: Contains information about a given product
+    columns:
+      - name: product_id
+        description: Unique identifier for a product and the the primary key for this table
+        tests:
+          - unique
+          - not_null
+      - name: price
+        description: Amount Item is sold for (in USD)
+        tests:
+          - not_null
+          - positive_values
+  - name: dim_promos
+    description: Contains information about current and past promotions
+    columns:
+      - name: promo_name
+        description: Name of the promotion and the current primary key
+        tests: 
+          - unique
+          - not_null
+      - name: discount
+        description: Amount of discount, as a percentage
+        tests:
+          - not_null
+          - positive_values
+      - name: status
+        description: Label describing whether a promotion is currently running
+        tests:
+          - accepted_values:
+              values: ['active', 'inactive']
+  - name: fct_orders
+    description: Contains information about orders.
+    columns:
+      - name: order_id
+        description: Unique ID of the order and the primary key of this table
+        tests:
+          - not_null
+          - unique
+  - name: fct_order_items
+    description: Contains information about the items included in orders.
+    columns:
+      - name: num_items
+        description: Quantity of a given product included in an order
+        tests:
+          - not_null
+          - positive_values
