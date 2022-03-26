@@ -3,18 +3,20 @@
     materialized='table'
   )
 }}
+with sessions as (
+  select * from {{ ref('int_sessions_agg') }}
+),
 
+users as (
+  select * from {{ ref('stg_users')}}
+)
 select
     s.user_id as user_id,
-    u.user_name as user_name,
-    u.email as email,
-    s.session_id as session_id,
-    s.session_start as session_start,
-    s.session_end as session_end,
-    s.session_length as session_length,
-    s.num_page_views,
-    s.num_cart_adds,
-    s.num_checkouts
-from {{ ref('int_sessions_agg') }} s
-left join {{ ref('dim_users')}} u
-on s.user_id = u.user_id
+    count(sessions.session_id) as num_sessions
+    avg(sessions.session_length) as avg_session_length,
+    sum(sessions.num_page_views) as total_page_views,
+    sum(sessions.num_cart_adds) as total_cart_adds,
+    sum(sessions.num_checkouts) as total_checkouts 
+from sessions
+left join users
+on s.user_id = users.user_id
