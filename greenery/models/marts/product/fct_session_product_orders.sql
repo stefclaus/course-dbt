@@ -8,7 +8,8 @@
   
   sessions as (
     select session_guid, 
-      order_guid
+      order_guid, 
+      product_guid
     from {{ ref('stg_events') }}),
     
 product_order as (
@@ -17,8 +18,9 @@ product_order as (
     a.quantity,
     b.session_guid
   from order_items a
-  left outer join sessions b
-  on a.order_guid=b.order_guid)
+  full outer join sessions b
+  on a.order_guid=b.order_guid
+  and b.product_guid=b.product_guid)
   
   select a.product_guid,
     a.order_guid,
