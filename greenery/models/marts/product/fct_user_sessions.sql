@@ -1,8 +1,3 @@
-{{
-  config(
-    materialized='table'
-  )
-}}
 with sessions as (
   select * from {{ ref('int_sessions_agg') }}
 ),
