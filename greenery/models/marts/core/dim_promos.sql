@@ -1,11 +1,9 @@
-{{
-  config(
-    materialized='table'
-  )
-}}
+with promos as (
+    select * from {{ ref('stg_promos') }}
+)
 
 select
-    p.promo_name as promo_name,
-    p.discount as discount,
-    p.status as status
-from {{ ref('stg_promos') }} p
+    promo_name,
+    discount,
+    status
+from promos
