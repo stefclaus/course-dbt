@@ -9,6 +9,7 @@ addresses as (
 select
     orders.order_id as order_id,
     orders.promo_name as promo_name,
+    case when orders.promo_name is not null then true else false end as is_promo_purchase,
     orders.created_at::date as order_date,
     orders.order_cost as order_cost,
     orders.shipping_cost as shipping_cost,
