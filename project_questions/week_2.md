@@ -44,19 +44,19 @@ To understand what are indicators of whether a user will repeat purchase or not,
 
 ### Create a marts folder, so we can organize our models, with the following subfolders for business units: Core, Marketing, Product
 
-See [`greenery/models/marts`](https://github.com/mcaruana/course-dbt/tree/mc-week-two/greenery/models/marts)
+See [`greenery/models/marts`](https://github.com/mcaruana/course-dbt/tree/main/greenery/models/marts)
 
 ### Explain the marts models you added. Why did you organize the models in the way you did?
 
-For **core**, see [`greenery/models/marts/core/core.md](https://github.com/mcaruana/course-dbt/tree/mc-week-two/greenery/models/marts/core/core.md)
+For **core**, see [`greenery/models/marts/core/core.md](https://github.com/mcaruana/course-dbt/tree/main/greenery/models/marts/core/core.md)
 
-For **marketing**, see [`greenery/models/marts/marketing/marketing.md](https://github.com/mcaruana/course-dbt/tree/mc-week-two/greenery/models/marts/marketing/marketing.md)
+For **marketing**, see [`greenery/models/marts/marketing/marketing.md](https://github.com/mcaruana/course-dbt/tree/main/greenery/models/marts/marketing/marketing.md)
 
-For **product**, see [`greenery/models/marts/product/product.md](https://github.com/mcaruana/course-dbt/tree/mc-week-two/greenery/models/marts/product/product.md)
+For **product**, see [`greenery/models/marts/product/product.md](https://github.com/mcaruana/course-dbt/tree/main/greenery/models/marts/product/product.md)
 
 ### Use the dbt docs to visualize your model DAGs to ensure the model layers make sense
 
-See https://github.com/mcaruana/course-dbt/blob/mc-week-two/assets/20220321_lineage.png
+See https://github.com/mcaruana/course-dbt/blob/main/assets/20220321_lineage.png
 
 ## Part 2 (Tests)
 
