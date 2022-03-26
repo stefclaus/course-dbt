@@ -7,7 +7,8 @@ addresses as (
 )
 
 select
-    orders.order_id as order_id,
+    orders.order_id,
+    orders.user_id,
     orders.promo_name as promo_name,
     case when orders.promo_name is not null then true else false end as is_promo_purchase,
     orders.created_at::date as order_date,
