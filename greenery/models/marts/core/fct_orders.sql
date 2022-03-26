@@ -9,7 +9,7 @@ addresses as (
 select
     orders.order_id as order_id,
     orders.promo_name as promo_name,
-    orders.created_at as created_at,
+    orders.created_at::date as order_date,
     orders.order_cost as order_cost,
     orders.shipping_cost as shipping_cost,
     orders.total_cost as total_cost,
