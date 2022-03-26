@@ -27,7 +27,8 @@ select
   product_orders::float/product_sessions::float * 100 as product_conversion_rate,
 from dbt_mike_c.agg_product_outcomes 
 ```
-||Product Name||Product Sessions||Product Orders||Product Conversion Rate||
+|Product Name|Product Sessions|Product Orders|Product Conversion Rate|
+| ---------- | -------------- | ------------ | --------------------- |
 |Pothos|21|61|34.42622950819672|
 |Bamboo|36|67|53.73134328358209|
 |Philodendron|30|62|48.38709677419355|
