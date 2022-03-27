@@ -59,3 +59,8 @@ Query:
 ```ruby
 
 ```
+*5. Show your DAG*
+
+**DAG:**
+
+![](DAGweek3.png)
