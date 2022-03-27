@@ -1,30 +1,35 @@
-with order_session as(
-  select session_guid, 
-    order_guid,
-    quantity, 
-    checkout,
-    package_shipped
-  from {{ ref('int_order_session') }}
-  where checkout=true),
-  
-product_session as (
-  select session_guid, 
-    name, 
-    add_to_cart,
-    page_view
-  from {{ ref('int_product_session') }})
-    
-select  b.name,
-  a.session_guid, 
-  a.order_guid, 
-  a.quantity,
-  a.checkout,
-  a.package_shipped,
-  b.add_to_cart,
-  b.page_view
-from order_session a
-left outer join product_session b
-on a.session_guid=b.session_guid
+with product_interaction_agg as (
+  select 
+    product_guid,
+    count(case when page_view = true then session_guid else null end) as product_sessions,
+    count(case when add_to_cart = true then session_guid else null end) as product_adds
+  from {{ ref('int_product_session') }}
+  group by product_guid
+),
+
+product_order_agg as (
+  select 
+    product_guid,
+    count(order_guid) as product_orders,
+    count(distinct order_guid) as product_count
+    from {{ ref('int_order_session') }}
+  group by product_guid
+),
+
+product as (
+select * from {{ ref('stg_products') }}
+),
 
 
-  
+select
+  product.product_guid,
+  product.name,
+  coalesce(product_interaction_agg.product_sessions,0) as product_sessions,
+  coalesce(product_interaction_agg.product_adds,0) as product_adds,
+  coalesce(product_order_agg.product_orders,0) as product_orders,
+  coalesce(product_order_agg.product_count,0) as product_count
+from product
+left join product_interaction_agg
+  on product.product_guid = product_interaction_agg.product_guid
+left join product_order_agg
+  on product.product_guid = product_order_agg.product_guid
