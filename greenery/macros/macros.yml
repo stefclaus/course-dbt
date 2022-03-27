@@ -1,0 +1,10 @@
+version: 2
+
+macros:
+  - name: event_type
+    description: breaks out event types into columns with a 1 or a 0 
+    docs:
+      show: true
+    arguments:
+      - name: event_types
+        description: shows event types
