@@ -18,16 +18,13 @@ product_order_agg as (
 
 product as (
 select * from {{ ref('stg_products') }}
-),
+)
 
 
-select
-  product.product_guid,
+select product.product_guid,
   product.name,
   coalesce(product_interaction_agg.product_sessions,0) as product_sessions,
-  coalesce(product_interaction_agg.product_adds,0) as product_adds,
-  coalesce(product_order_agg.product_orders,0) as product_orders,
-  coalesce(product_order_agg.product_count,0) as product_count
+  coalesce(product_interaction_agg.product_adds,0) as product_adds
 from product
 left join product_interaction_agg
   on product.product_guid = product_interaction_agg.product_guid
