@@ -19,11 +19,7 @@ from conversion_rate
 ```
 
 *1b. What is our conversion rate by product?*
-```ruby 
-select name, cast(product_adds as decimal)/cast(product_sessions as decimal) as conversion_rate
-from dbt_stef_c.fct_session_product_orders
-order by name
-```
+To find the answer I wrote two intermediate tables, `int_page_views`, which  filters events for page views and  `int_purchases`. Then I wrapped those two up into `fct_page_views_purchases` and made a column that calculates the conversion rate by product. 
 
  **Answer:**
 | Name | Conversion Rate |

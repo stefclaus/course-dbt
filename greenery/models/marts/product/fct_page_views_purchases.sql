@@ -1,13 +1,13 @@
 with purchases as (
   select product_guid,
     total_purchases
-  from {{ ref('int_purchases') }}
+  from {{ ref('int_orders') }}
 ),
 
 page_views as( 
   select product_guid,
     page_views
-  from {{ ref('int_page_views') }}
+  from {{ ref('int_sessions') }}
 )
 
 select   c.name,
