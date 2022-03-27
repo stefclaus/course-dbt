@@ -19,6 +19,11 @@ from conversion_rate
 ```
 
 *1b. What is our conversion rate by product?*
+```ruby 
+select name, cast(product_adds as decimal)/cast(product_sessions as decimal) as conversion_rate
+from dbt_stef_c.fct_session_product_orders
+order by name
+```
 
  **Answer:**
 | Name | Conversion Rate |
