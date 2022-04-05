@@ -11,7 +11,7 @@ exposures:
       Conversion rate by product.
     
     depends_on:
-      - ref('fct_funnel_by_product')
+      - ref('fct_page_views_purchases')
 
 
     owner:
