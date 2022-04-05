@@ -1,0 +1,19 @@
+
+version: 2
+
+exposures:
+  
+  - name: conversion_rate_dashboard
+    type: dashboard
+    maturity: high
+    url: https://bi.tool/dashboards/product_conversion
+    description: >
+      Conversion rate by product.
+    
+    depends_on:
+      - ref('fct_funnel_by_product')
+
+
+    owner:
+      name: Stef
+      email: stef@dooly.ai
